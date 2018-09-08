@@ -1,13 +1,24 @@
+:root  /* Variables go here */
+{
+  --header-size: 8vh;
+  --nav-size: 5vh;
+}
+
+/*Resetti the sphagetti*/
 * {
   margin:0;
   box-sizing: border-box;
 }
 
 section {
-  width: 100%; height:100vh; padding:10vh 10vw;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: space-around;
+  width: 100%; height:100vh;  
   font-size:3vmin;
+  background: #33b3e3;
+  
+  display: flex; 
+  align-items: center;
+  align-content: center;
+  flex-basis: auto;
 }
 
 body {
@@ -22,24 +33,19 @@ h1 {
   font-size: 4vmin;
 }
 
-div p {
-  margin:1em 0;
-}
-
-
 /* Navigation */
 nav {
   position:fixed;
   bottom:0px;
-  height: 5vh;
+  height: var(--nav-size);
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
   z-index:1;
   background: #000000;
 
-  align-items: center;
-  justify-content: center;
   display: flex;  
+  align-items: center;
+  justify-content: center;  
 }
 
 nav a {  
@@ -77,7 +83,7 @@ nav .selected
 	pointer-events: none;
 }
 
-#doyle {
+#intro {
   background-image: url( fabric.jpg );
   background-color: #FF0037;
   background-blend-mode: multiply;
@@ -86,30 +92,9 @@ nav .selected
   font-family: Oxygen, sans-serif;
 }
 
-#doyle h1 {
-  font-family: Katibeh, cursive;
-}
-
-#doyle .author {
-  font-family: Katibeh, cursive;
-  color: #aaeeff;
-}
-
-#doyle div {
-  display:flex;
-  justify-content:space-around;
-  width:100%;
-}
-
-#doyle a img {
-  width:10vw;
-  box-shadow:0 5px 20px #000;
-}
-
-
 /* Pride And Prejudice - By Jane Austen */
 
-#austen {
+#government {
   background-color: rgba( 33,57,114,1.00 );
   background-image: url( pride-and-prejudice.png );
   background-blend-mode: multiply;
@@ -118,15 +103,6 @@ nav .selected
   background-size:cover;
   color: #fff;
   font-family: Playfair Display, serif;
-}
-
-#austen h1 {
-  font-family: Great Vibes, Monotype Corsiva, cursive;
-  font-weight: normal;
-}
-
-#austen .author {
-  color: rgba( 255,234,128,1.00 );
 }
 
 
@@ -202,7 +178,7 @@ nav .selected
   z-index: 1;
   top: 0px;
   width: 100%;
-  height: 8vh;
+  height: var(--header-size);
   background: #000;
 
   display: flex;
@@ -236,7 +212,76 @@ ul {
 #header h1
 {
   color: white;  
-  font-size: 3vw;  
+  font-size: 2vw;  
   text-align: center;
-  white-space: nowrap;
+  white-space: nowrap;  
+}
+
+/*Content*/
+.textContainer
+{
+  background: rgba( 0,0,0,0.5 );
+  height:100%;
+
+  flex: 1;
+
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.textContent
+{
+  padding: 50px;  
+}
+
+.textContent h2
+{
+  padding-bottom: 20px;
+  font-size: 3vmin;
+}
+
+.textContent p
+{  
+  font-size: 2vmin;
+}
+
+.singleImage
+{
+  flex: 2.5;
+  display: flex;
+}
+
+.singleImage img
+{
+  flex: 1;
+  object-fit: contain;
+}
+
+.singleImage iframe
+{
+  flex: 1;
+  margin: 13vw;
+  height: 50vh;
+}
+
+.column
+{
+  flex-direction: column;
+}
+
+#intro h1, h3
+{
+  text-align: center;
+  padding: 3vw;
+}
+
+#intro div
+{
+  width: 100%; height: 100%;  
+  padding: 10vw;
+
+  display: flex;  
+  align-items: center;
+  justify-content: center;
 }
