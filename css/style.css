@@ -57,6 +57,8 @@ nav a {
   transition: 0.5s;
   z-index:3;
   line-height:7vh; /*man this is a fucking hack*/
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
 }
 
 nav .selected 
@@ -180,6 +182,8 @@ nav .selected
   width: 100%;
   height: var(--header-size);
   background: #000;
+  font-family: 'Oswald', sans-serif;  
+  text-transform: uppercase;
 
   display: flex;
 }
@@ -233,17 +237,23 @@ ul {
 .textContent
 {
   padding: 50px;  
+  color: white;
 }
 
 .textContent h2
 {
   padding-bottom: 20px;
-  font-size: 3vmin;
+  font-size: 2vw;
+  font-family: 'Oswald', sans-serif;  
+  text-transform: uppercase;
 }
 
 .textContent p
 {  
-  font-size: 2vmin;
+  font-size: 1vw;
+  font-family: 'Oswald', sans-serif;  
+  font-weight: 300;
+  
 }
 
 .singleImage
@@ -263,6 +273,7 @@ ul {
   flex: 1;
   margin: 13vw;
   height: 50vh;
+  border-radius: 3px;
 }
 
 .column
@@ -284,4 +295,113 @@ ul {
   display: flex;  
   align-items: center;
   justify-content: center;
+}
+
+.siema
+{
+  background: #000;
+  width: 50vw;  
+  margin-top: 7vw;
+  margin-bottom: 3vw;
+  border-radius: 5px;
+}
+
+.siema div 
+{
+  height: 100%; width: 100%;
+  display: flex;  
+  align-items: center;
+  justify-content: center;  
+  object-fit: contain;
+}
+
+.siema div img
+{
+  object-fit: contain;
+  height: 100%; width: 100%;
+}
+
+.siema div p
+{
+  color: white;
+}
+
+.column .textContainer
+{
+  margin-bottom: var(--nav-size);
+}
+
+.column .textContainer .textContent
+{
+  padding-left: 20vw;
+  padding-right: 20vw;
+}
+
+.pointer
+{
+  position: relative;
+  height: 0%;
+  font-size: 3vw;
+  top: -10vh;
+  left: -3vw;
+  animation: touchy 8s infinite; 
+}
+
+@keyframes touchy
+{
+  0%
+  {
+    transform: translateX(15vw) 
+    scale(1.2)
+    rotate(-85deg)
+    ;
+  }
+  9%
+  {
+    transform: translateX(15vw) 
+    scale(1)
+    rotate(-80deg)
+    ;
+  }
+  10%
+  {
+    transform: translateX(15vw) 
+    scale(1)
+    rotate(-80deg)
+    ;
+  }
+  50%
+  {
+    transform: translateX(-15vw)  
+    translateY(1vw)
+    rotate(-110deg)
+    ;
+  }  
+  60%
+  {
+    transform: translateX(-15vw)  
+    translateY(1vw)
+    rotate(-100deg)
+    scale(1.2)
+    ;
+  } 
+  100%
+  {
+    transform: translateX(15vw) 
+    scale(1.2)
+    rotate(-85deg)
+    ;
+  } 
+}
+
+.fade
+{
+  animation: touchy 8s infinite, fade 2s;
+  color: rgba( 0,0,0, 0 )
+}
+
+@keyframes fade
+{
+  0% {color: rgba( 0,0,0, 1 )}
+  100% {color: rgba( 0,0,0, 0 )}
 }
