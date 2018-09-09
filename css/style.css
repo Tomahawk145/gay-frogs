@@ -19,6 +19,10 @@ section {
   align-items: center;
   align-content: center;
   flex-basis: auto;
+
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 body {
@@ -33,7 +37,78 @@ h1 {
   font-size: 4vmin;
 }
 
-/* Navigation */
+/*-------------------Header stuff-------------------*/
+#header
+{
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  width: 100%;
+  height: var(--header-size);
+  background: #000;
+  font-family: 'Oswald', sans-serif;  
+  text-transform: uppercase;
+
+  display: flex;
+}
+
+.headbox
+{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+/*https://stackoverflow.com/questions/32378953/keep-the-middle-item-centered-when-side-items-have-different-widths*/
+.headbox:first-child > span { margin-right: auto; }
+.headbox:last-child  > span { margin-left: auto;  }
+
+
+#header img
+{  
+  object-fit: contain;
+  color: white;  
+  margin: 5px;
+  filter: blur(100px);
+  animation-fill-mode: forwards;
+}
+
+.img-appear 
+{
+  animation: unblur 1s; 
+}
+
+.img-appear-reverse
+{
+  animation: unblur 1s reverse; 
+}
+
+@keyframes unblur
+{
+  0%
+  {
+    filter: blur(100px);
+  }
+
+  100%
+  {
+    filter: blur(0px);
+  }
+
+}
+
+#header h1
+{
+  color: white;  
+  font-size: 2vw;  
+  text-align: center;
+  white-space: nowrap;  
+}
+
+
+/* -----------------------------Navigation---------------------- */
 nav {
   position:fixed;
   bottom:0px;
@@ -65,11 +140,10 @@ nav .selected
 { 
   transform: translateY(-10px);
   transition: 0.5s;
-  background-color: #33be33;
+  background-color: #000925;
   transition: 0.5s;
  }
 
-/* A Study In Scarlet - By Sir Arthur Conan Doyle */
 
 #loading {
 	position: fixed;
@@ -85,143 +159,122 @@ nav .selected
 	pointer-events: none;
 }
 
-#intro {
-  background-image: url( fabric.jpg );
-  background-color: #FF0037;
+/*---------------Intro---------------*/
+
+#intro {  
+  background-color: #00071f;  
+  background-repeat: repeat;  
+  background-size: 200px 200px;
   background-blend-mode: multiply;
-  background-size:cover;
-  color: #fff;
-  font-family: Oxygen, sans-serif;
+  color: #fff;  
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+
+  margin-top: var(--header-size);
 }
 
-/* Pride And Prejudice - By Jane Austen */
+#intro img 
+{  
+  margin-bottom: calc(var(--nav-size) + 1vh);
+}
+
+#intro h3
+{
+  color: #263350;
+}
+
+#intro h3:first-child
+{
+  margin-top: calc(var(--header-size) + 1vh);
+  color: white;
+}
+
+#intro h1, h3
+{
+  text-align: center;
+}
+
+#intro div
+{
+  width: 100%; height: 100%;  
+  padding: 10vw;
+  padding-top: 0px;
+  padding-bottom: 0px;
+
+  display: flex;  
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*-------------------Government-------------------*/
 
 #government {
-  background-color: rgba( 33,57,114,1.00 );
-  background-image: url( pride-and-prejudice.png );
-  background-blend-mode: multiply;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size:cover;
+  background-image: url(Page1.jpg);
+
   color: #fff;
   font-family: Playfair Display, serif;
 }
 
-
-/* The War Of The Worlds - By H. G. Wells*/
-
-#wells {
-  background: linear-gradient( rgba( 0,0,0,0.5 ), rgba( 0,0,0,0.5 ) ), url( foliage.jpg );
-  background-size: cover;
-  color: #fff;
-  font-family: 'Arima Madurai', cursive;
-  text-shadow: 0 2px 1px #000;
-}
-
-#wells h1 {
-  font-family: 'Tulpen One', cursive;
-  text-transform: uppercase;
-  word-spacing: 10px;
-  letter-spacing: 5px;
-}
-
-#wells .author {
-  font-family: 'Arima Madurai', cursive;
-  font-weight: bold;
-}
-
-
-/*  Twenty Thousand Leagues Under The Sea - By Jules Verne */
-
-#verne {
-  background-image: url( water.jpg ), radial-gradient( circle, rgba( 50,153,211,1.00 ), rgba( 10,60,100,1.00 ) );
-  background-blend-mode: overlay, normal;
-  background-size: cover;
-  color: #fff;
-  font-family: 'Roboto Slab', serif;
-  text-shadow: 0 1px 3px rgba( 0,0,0,1 );
-}
-
-#verne h1 {
-  font-family: 'Cinzel Decorative', cursive;
-  color: #FFEE99;
-  text-shadow: 0 2px 5px rgba( 0,0,0,1 ), 0 2px 5px rgba( 0,0,0,1 );
-  font-size:6vmin;
-}
-
-#verne .author {
-  font-family: 'Roboto Slab', serif;
-}
-
-/* Dracula - By Bram Stoker */
-
-#stoker {
-  background-color: #770707;
-  background-image: radial-gradient( rgba( 0,0,0,0 ), rgba( 0,0,0, 1 ) ), url( vampire.png );
-  background-size: auto auto, auto 90%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-blend-mode: normal, multiply;
-  color: #fff;
-  font-family: 'Caveat', cursive;
-}
-
-#stoker h1 {
-  font-family: 'UnifrakturCook', cursive;
-}
-
-#stoker .author {
-  font-family: 'IM Fell English', serif;
-}
-
-#header
-{
-  position: fixed;
-  z-index: 1;
-  top: 0px;
-  width: 100%;
-  height: var(--header-size);
-  background: #000;
-  font-family: 'Oswald', sans-serif;  
-  text-transform: uppercase;
-
-  display: flex;
-}
-
-.headbox
-{
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: visible;
-}
-
-/*https://stackoverflow.com/questions/32378953/keep-the-middle-item-centered-when-side-items-have-different-widths*/
-.headbox:first-child > span { margin-right: auto; }
-.headbox:last-child  > span { margin-left: auto;  }
-
-ul {
-  padding: 0;
-  list-style: none;
-}
-
-#header img
+.eye
 {  
-  object-fit: contain;
-  color: white;  
-  margin: 5px;
+  height: 60vh;  
+  animation: hover 10s infinite ease-in-out, glow 15s infinite ease-in-out;
 }
 
-#header h1
+@keyframes glow
 {
-  color: white;  
-  font-size: 2vw;  
-  text-align: center;
-  white-space: nowrap;  
+  0%
+  {
+    filter: drop-shadow(0px 0px 10px #ffffff);   
+  }
+
+  50%
+  {
+    filter: drop-shadow(0px 0px 30px #ffffff);   
+  }
+
+  100%
+  {
+    filter: drop-shadow(0px 0px 10px #ffffff);   
+  }
 }
 
-/*Content*/
+@keyframes hover
+{
+  0%
+  {
+    transform: translateY(-3vh)
+  }
+
+  50%
+  {
+    transform: translateY(3vh)
+  }
+
+  100%
+  {
+    transform: translateY(-3vh)
+  }
+}
+
+
+/*-------------------Cause-------------------*/
+
+#cause
+{
+  background-image: url(Page2.jpg);
+}
+
+/*-------------------Censor-------------------*/
+
+#censor
+{
+  background-image: url(Page3.jpg);
+}
+
+
+
+/*--------------------Content----------------*/
 .textContainer
 {
   background: rgba( 0,0,0,0.5 );
@@ -232,6 +285,7 @@ ul {
   display: flex;
   align-content: center;
   align-items: center;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
 .textContent
@@ -259,7 +313,7 @@ ul {
 .singleImage
 {
   flex: 2.5;
-  display: flex;
+  display: flex;  
 }
 
 .singleImage img
@@ -281,29 +335,25 @@ ul {
   flex-direction: column;
 }
 
-#intro h1, h3
-{
-  text-align: center;
-  padding: 3vw;
-}
-
-#intro div
-{
-  width: 100%; height: 100%;  
-  padding: 10vw;
-
-  display: flex;  
-  align-items: center;
-  justify-content: center;
-}
-
+/*----------------------------Siema stuff--------------------------------*/
 .siema
 {
-  background: #000;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
   width: 50vw;  
-  margin-top: 7vw;
-  margin-bottom: 3vw;
+  margin-top: 6vw;
+  margin-bottom: 2vw;
   border-radius: 5px;
+
+  background-blend-mode: darken;
+  transition: 1s;
+  
+  background-image: url("1.jpg");
+}
+
+.siema img
+{
+  position: relative;
+  width: 0%;
 }
 
 .siema div 
@@ -394,6 +444,7 @@ ul {
   } 
 }
 
+/*Fade out for siema hand*/
 .fade
 {
   animation: touchy 8s infinite, fade 2s;
