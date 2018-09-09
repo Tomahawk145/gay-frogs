@@ -37,6 +37,10 @@ h1 {
   font-size: 4vmin;
 }
 
+p{
+  padding-bottom: 1vh;
+}
+
 /*-------------------Header stuff-------------------*/
 #header
 {
