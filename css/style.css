@@ -2,12 +2,19 @@
 {
   --header-size: 8vh;
   --nav-size: 5vh;
+  --primary: #00071f;
+  --secondary: #263350;
 }
 
 /*Resetti the sphagetti*/
 * {
   margin:0;
   box-sizing: border-box;
+}
+
+/*https://stackoverflow.com/questions/3397113/how-to-remove-border-outline-around-text-input-boxes-chrome*/
+*:focus {
+  outline: none;
 }
 
 section {
@@ -54,6 +61,11 @@ p{
   text-transform: uppercase;
 
   display: flex;
+}
+
+.shadow
+{
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
 .headbox
@@ -146,6 +158,8 @@ nav .selected
   transition: 0.5s;
   background-color: #000925;
   transition: 0.5s;
+
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
  }
 
 
@@ -184,7 +198,7 @@ nav .selected
 
 #intro h3
 {
-  color: #263350;
+  color: var(--secondary);
 }
 
 #intro h3:first-child
@@ -276,6 +290,198 @@ nav .selected
   background-image: url(Page3.jpg);
 }
 
+/*-------------------Effect-------------------*/
+
+#effect
+{
+  background-image: url(Page4.jpg);
+}
+
+.rel
+{
+  position: relative;
+}
+
+.absImg
+{
+  position: absolute;
+}
+
+.frog
+{
+  height: 10vw;
+  margin-top: 20vh; 
+}
+
+.reverse
+{
+  transform: scaleX(-1);
+}
+
+.speaker
+{
+  height: 20vw;
+}
+
+.doof
+{
+  animation: doofdoof 0.48s infinite;
+}
+
+@keyframes doofdoof
+{
+  0%
+  {
+    transform: scale(1);
+  }
+
+  50%
+  {
+    transform: scale(1.2);
+  }
+
+  100%
+  {
+    transform: scale(1);
+  }
+}
+
+/*--------------------Woke-------------------*/
+
+#woke {  
+  background-color: var(--primary);  
+  background-repeat: repeat;  
+  background-size: 200px 200px;
+  background-blend-mode: multiply;
+  color: #fff;  
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;  
+}
+
+#woke h1 
+{
+  text-align: center;
+}
+
+#woke div
+{
+  display: flex;
+  align-content: space-around;
+  align-items: center;
+
+  padding: 3vw;
+  height: 100%;
+  margin-bottom: var(--nav-size);
+}
+
+#woke h1
+{
+  margin-top: var(--header-size);
+  flex: 1;
+}
+
+#shrink
+{
+  margin: 0vw;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#woke img
+{
+  padding: 2vw;
+  flex: 1;
+}
+
+.grow-2
+{
+  flex: 2 1 auto;
+}
+
+.grow-1
+{
+  flex: 1 1 auto;
+  padding-right: 0px !important;
+}
+
+#woke form
+{
+  width: 100%;
+}
+
+#woke textarea
+{
+  flex: 1;
+  border: 5px solid var(--secondary);
+  color: var(--secondary);
+  background: var(--primary);
+  font-size: 30px;
+  text-align: left;
+  padding: 2vmin;
+  resize: none;
+  transition: .5s;
+  font-family: 'Oswald';
+  font-weight: 200;
+  border-radius: 10px;
+  width: 100%;
+  transition: 1s;
+}
+
+#woke textarea:focus
+{    
+  border: 5px solid #bebebe;
+  color: #bebebe;
+}
+
+#woke input
+{
+  float: right;
+  padding: 5px 20px;
+  border-radius: 10px;
+  background: var(--primary);
+  border: solid var(--secondary);
+  color: var(--secondary);
+  font-size: 3vmin;
+  font-family: 'oswald';
+  margin: 10px;
+  margin-right: 0;
+  transition: .5s;
+}
+
+#woke input:hover
+{
+  color: #bebebe;
+  border: solid #bebebe;
+}
+
+.noflex
+{
+  display: block !important;
+  padding: 0px !important; 
+}
+
+#woke h1
+{
+  font-size: 8vmin;
+  padding-bottom: 3vmin;
+}
+
+.credits img
+{
+  width: 25vmin;
+  height: 25vmin;
+  object-fit: cover;
+  padding: 0px !important;
+  margin: 2vmin;  
+  border-radius: 50%;
+  border: 5px solid var(--secondary);
+}
+
+.creditsContainer
+{
+  float: 1;
+}
+
 
 
 /*--------------------Content----------------*/
@@ -331,7 +537,7 @@ nav .selected
   flex: 1;
   margin: 13vw;
   height: 50vh;
-  border-radius: 3px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 
 .column

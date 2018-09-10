@@ -3,6 +3,16 @@
 var scrollOffset = 0;
 animateScroll();
 
+//load in audio
+var audio = new Audio('audio/bangers.mp3');
+
+function stopAudio()
+{
+	audio.pause();
+	audio.currentTime = 0;
+}
+
+//Loading page
 imagesLoaded('body', { background: 'section' },
 	function () {
 		document.querySelector('#loading').className = 'loaded';
@@ -23,6 +33,9 @@ function selectLink() {
 	}
 	this.className = 'selected';
 
+	//Play audio or don't
+	index == 4 ? audio.play() : stopAudio();
+
 	//First page anims
 	if (index == 0) {
 		document.querySelector('h1.headbox').innerHTML = "The Museum of alternate facts";
@@ -38,6 +51,28 @@ function selectLink() {
 		document.querySelector('#header img').classList.add("img-appear");
 		document.querySelector('#header img').classList.remove("img-appear-reverse");
 	}
+
+	//Doof doof
+	if(index == 4)
+	{
+		BPM = 125;
+		setInterval(doof, 1000 * 60 / 125);
+	}
+	else
+	{
+		clearInterval(); //sthawp
+		document.querySelector('.speaker').classList.remove('doof');
+	}
+}
+
+function doof()
+{
+	document.querySelector('.speaker').AnimationPlayState
+}
+
+function stopDoof()
+{
+
 }
 
 function setScrollOffset(event) {
@@ -67,14 +102,12 @@ const mySiema = new Siema({
 	onChange: onChangeCallback,
 });
 
-
-
 //Load in description data from file async
 //Since chrome is a tight ass and can't load json from a local file, this needs to be hosted somewhere 
 var data = "";
 
 //Use this when running from file
-var jsonUrl = "https://cdn.rawgit.com/Tomahawk145/gay-frogs/72112f8e/js/Page3Descriptions.json"
+var jsonUrl = "https://rawgit.com/Tomahawk145/gay-frogs/master/js/Page3Descriptions.json"
 //Use this when running hosted
 //var jsonUrl = "js/Page3Descriptions.json" 
 $.getJSON(jsonUrl, function (json) {
@@ -98,12 +131,12 @@ function onChangeCallback() {
 	//Update captions
 	updateCaptions(this.currentSlide);
 
-	//Update the background
+	//Update the background with blurred slide images
 	updateBG(this.currentSlide)
 }
 
-function updateCaptions(i) {
-	//Update captions
+function updateCaptions(i) 
+{
 	document.querySelector('.captionTitle').innerHTML = data[i].title;
 	document.querySelector('.captionBody').innerHTML = data[i].body;
 }
@@ -112,4 +145,35 @@ function updateBG(i)
 {	
 	var img = "url(css/" + (i+1) +".jpg" + ")";	
 	document.getElementById("BGChange").style.backgroundImage = img;
+}
+
+//Twitter form
+//Text validation
+$('#message').on('input', remaining); //Event to call function every keypress
+$(document).ready(remaining) //Also call once after the page is ready to get size + set color
+function remaining() 
+{
+	//Find out how many letters are remaining and show user
+	var me = document.querySelector('#message');
+    var remain = me.maxLength - me.value.length; 
+	$('#remaining').text(remain);
+	
+	//Set to red or blue depending on if the amount is valid
+	$('#remaining').css('color', remain <= 0 ? 'red' : '#263350');
+}
+
+//Text submission
+$('#twitter').on('submit', checkForm); //Event to call function on click
+function checkForm(event) 
+{
+    event.preventDefault(); //Stop default behevaiour
+    var twit = $('#message').val();
+    tweet = encodeURIComponent(twit); //Filter out any special characters that might stuff up the URL
+	if (twit.length > 0)
+	{
+        window.open('https://twitter.com/intent/tweet?text=' + tweet, '', 'top="500",left="500",menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600')
+	} else 
+	{
+        alert("Your tweet can't be empty! Or is that just what the Illuminati wants you to think????")
+    }
 }
