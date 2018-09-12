@@ -309,6 +309,8 @@ nav .selected
 
 .frog
 {
+  animation: froggydance linear infinite 0.8s;
+  transform-origin: 50% 50%;
   height: 10vw;
 }
 
@@ -324,7 +326,7 @@ nav .selected
 
 .light
 {
-  height: 10vw;
+  height: 15vw;
 }
 
 .flexEnd
@@ -346,10 +348,7 @@ nav .selected
 .onehundo
 {
   height: 100%;
-
 }
-
-
 
 .doof
 {
@@ -373,6 +372,43 @@ nav .selected
     transform: scale(1);
   }
 }
+
+@keyframes froggydance{
+  0% {
+    transform:  translate(0px,0px)  scaleY(1.00) ;
+  }
+  6% {
+    transform:  translate(0px,15px)  scaleY(0.72) ;
+  }
+  12% {
+    transform:  translate(0px,1px)  scaleY(0.99) ;
+  }
+  29% {
+    transform:  translate(1px,-37px)  scaleY(1.06) ;
+  }
+  50% {
+    transform:  translate(1px,-84px)  scaleY(0.91) ;
+  }
+  55% {
+    transform:  translate(1px,-90px)  scaleY(0.94) ;
+  }
+  59% {
+    transform:  translate(1px,-89px)  scaleY(0.97) ;
+  }
+  77% {
+    transform:  translate(1px,-33px)  scaleY(1.09) ;
+  }
+  88% {
+    transform:  translate(1px,2px)  scaleY(0.93) ;
+  }
+  94% {
+    transform:  translate(1px,15px)  scaleY(0.84) ;
+  }
+  100% {
+    transform:  translate(0px,1px)  scaleY(1.00) ;
+  }
+}
+
 
 /*--------------------Woke-------------------*/
 
