@@ -168,7 +168,34 @@ nav .selected
 	z-index: 2;
 	top: 0;
 	left: 0;
-	background: #ccc;
+  animation: loadingBG 5s infinite;
+  text-align: center;
+}
+
+#loading h1
+{
+  width: 100%;
+  font-family: 'oswald';
+  color: white;
+  text-transform: uppercase;
+}
+
+@keyframes loadingBG
+{
+  0%
+  {
+    background: var(--primary);
+  }
+
+  50%
+  {
+    background: var(--secondary);
+  }
+
+  100%
+  {
+    background: var(--primary);
+  }
 }
 
 .loaded {
@@ -309,14 +336,14 @@ nav .selected
 
 .frog
 {
-  animation: froggydance linear infinite 0.8s;
+  animation: froggydance linear 1 0.8s;
   transform-origin: 50% 50%;
-  height: 10vw;
+  height: 11vw;
 }
 
-.reverse
+.frogytoo
 {
-  transform: scaleX(-1);
+  animation: froggydanceReversed linear 1 0.8s;
 }
 
 .speaker
@@ -352,27 +379,62 @@ nav .selected
 
 .doof
 {
-  animation: doofdoof 0.48s infinite;
+  animation: doofdoof 0.2s 1;
 }
 
 @keyframes doofdoof
 {
   0%
   {
-    transform: scale(1);
+    transform: scaleX(1)
+    scaleY(1);
   }
 
   50%
   {
-    transform: scale(1.2);
+    transform: scaleX(1.2)
+    scaleY(1.2);
   }
 
   100%
   {
-    transform: scale(1);
+    transform: scaleX(1)
+    scaleY(1);
   }
 }
 
+.reverse
+{
+  transform: scaleX(-1) !important;
+}
+
+.reversedoof
+{
+  animation: doofdoofReverse 0.2s 1;
+}
+
+@keyframes doofdoofReverse
+{
+  0%
+  {
+    transform: scaleX(-1)
+    scaleY(1);
+  }
+
+  50%
+  {
+    transform: scaleX(-1.2)
+    scaleY(1.2);
+  }
+
+  100%
+  {
+    transform: scaleX(-1)
+    scaleY(1);
+  }
+}
+
+/*Generated with css animate*/
 @keyframes froggydance{
   0% {
     transform:  translate(0px,0px)  scaleY(1.00) ;
@@ -381,31 +443,68 @@ nav .selected
     transform:  translate(0px,15px)  scaleY(0.72) ;
   }
   12% {
-    transform:  translate(0px,1px)  scaleY(0.99) ;
+    transform:  translate(0px,1px)  scaleY(1) ;
   }
   29% {
-    transform:  translate(1px,-37px)  scaleY(1.06) ;
+    transform:  translate(0px,-37px)  scaleY(1.06) ;
   }
   50% {
-    transform:  translate(1px,-84px)  scaleY(0.91) ;
+    transform:  translate(0px,-84px)  scaleY(0.91) ;
   }
   55% {
-    transform:  translate(1px,-90px)  scaleY(0.94) ;
+    transform:  translate(0px,-90px)  scaleY(0.94) ;
   }
   59% {
-    transform:  translate(1px,-89px)  scaleY(0.97) ;
+    transform:  translate(0px,-89px)  scaleY(0.97) ;
   }
   77% {
-    transform:  translate(1px,-33px)  scaleY(1.09) ;
+    transform:  translate(0px,-33px)  scaleY(1.09) ;
   }
   88% {
-    transform:  translate(1px,2px)  scaleY(0.93) ;
+    transform:  translate(0px,2px)  scaleY(0.93) ;
   }
   94% {
-    transform:  translate(1px,15px)  scaleY(0.84) ;
+    transform:  translate(0px,15px)  scaleY(0.84) ;
   }
   100% {
     transform:  translate(0px,1px)  scaleY(1.00) ;
+  }
+}
+
+/*Generates with css animate*/
+@keyframes froggydanceReversed{
+  0% {
+    transform:  translate(0px,0px)  scaleY(1.00) scaleX(-1) ;
+  }
+  6% {
+    transform:  translate(0px,15px)  scaleY(0.72) scaleX(-1);
+  }
+  12% {
+    transform:  translate(0px,1px)  scaleY(1) scaleX(-1);
+  }
+  29% {
+    transform:  translate(0px,-37px)  scaleY(1.06) scaleX(-1);
+  }
+  50% {
+    transform:  translate(0px,-84px)  scaleY(0.91) scaleX(-1);
+  }
+  55% {
+    transform:  translate(0px,-90px)  scaleY(0.94) scaleX(-1);
+  }
+  59% {
+    transform:  translate(0px,-89px)  scaleY(0.97) scaleX(-1);
+  }
+  77% {
+    transform:  translate(0px,-33px)  scaleY(1.09) scaleX(-1);
+  }
+  88% {
+    transform:  translate(0px,2px)  scaleY(0.93) scaleX(-1) ;
+  }
+  94% {
+    transform:  translate(0px,15px)  scaleY(0.84) scaleX(-1);
+  }
+  100% {
+    transform:  translate(0px,1px)  scaleY(1.00) scaleX(-1);
   }
 }
 
@@ -561,7 +660,11 @@ nav .selected
   float: 1;
 }
 
-
+#oil
+{
+  width: 40vw;
+  object-fit: contain;
+}
 
 /*--------------------Content----------------*/
 .textContainer
