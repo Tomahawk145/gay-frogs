@@ -662,8 +662,8 @@ nav .selected
 
 #oil
 {
-  width: 40vw;
-  object-fit: contain;
+  width: 30vw;
+  object-fit: contain; 
 }
 
 /*--------------------Content----------------*/
